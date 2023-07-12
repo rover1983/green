@@ -20,7 +20,7 @@ WebDriver driver;
 	
 	@Test
 	public void testBox() {
-		driver.get("http://seleniumhq.org");
+		driver.get("http://youtube.com");
 	}
 	
 	@AfterTest
