@@ -2,8 +2,10 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -12,10 +14,16 @@ public class TestSuit1 {
 
 WebDriver driver;
 	
+	@Parameters("browser")
 	@BeforeTest
-	public void setUp() {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+	public void setUp(String browserName) {
+		if(browserName.contains("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+		}else {
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+		}		
 	}
 	
 	@Test
