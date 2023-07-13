@@ -31,6 +31,11 @@ WebDriver driver;
 		driver.get("http://youtube.com");
 	}
 	
+	@Test
+	public void testBox2() {
+		driver.get("http://cars.com");
+	}
+	
 	@AfterTest
 	public void tearDown() {
 		driver.close();
